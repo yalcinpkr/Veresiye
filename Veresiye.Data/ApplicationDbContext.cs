@@ -10,12 +10,18 @@ namespace Veresiye.Data
 {
     public class ApplicationDbContext:DbContext
     {
-        public ApplicationDbContext() : base("name=DefaultConneciton")
+        public ApplicationDbContext() : base("name=DefaultConnection")
         {
         }
 
         public virtual DbSet<User>Users { get; set; }
         public virtual DbSet<Company>Companies { get; set; }
         public virtual DbSet<Activity>Activities { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            var userBuilder = new UserBuilder(modelBuilder.Entity<User>());
+        }
     }
 }
