@@ -37,7 +37,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.IsMdiContainer = true;
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Veresiye";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
