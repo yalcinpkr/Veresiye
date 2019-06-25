@@ -33,6 +33,11 @@ namespace Veresiye.UI
             builder.RegisterType<FrmMain>().As<FrmMain>();
             builder.RegisterType<FrmRegister>().As<FrmRegister>();
             builder.RegisterType<FrmCompanies>().As<FrmCompanies>();
+            builder.RegisterType<FrmLogin>().As<FrmLogin>();
+            builder.RegisterType<FrmCompanyAdd>().As<FrmCompanyAdd>();
+            builder.RegisterType<FrmCompanyEdit>().As<FrmCompanyEdit>();
+            builder.RegisterType<FrmActivityAdd>().As<FrmActivityAdd>();
+            
 
             var container = builder.Build();
 

@@ -55,6 +55,9 @@ namespace Veresiye.UI
             }
         }
 
-        
+        private void FrmRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -190,6 +190,7 @@
             this.Name = "FrmRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yeni Kullanıcı";
+            this.Load += new System.EventHandler(this.FrmRegister_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
