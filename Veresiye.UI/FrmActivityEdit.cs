@@ -12,18 +12,19 @@ using Veresiye.Service;
 
 namespace Veresiye.UI
 {
-    public partial class FrmActivityAdd : Form
+    public partial class FrmActivityEdit : Form
     {
-        private int CompanyId;
+        private int activityId;
         private readonly IActivityService activityService;
         public FrmCompanyEdit MasterForm { get; set; }
-        public FrmActivityAdd(IActivityService activityService)
+
+        public FrmActivityEdit(IActivityService activityService)
         {
             this.activityService = activityService;
             InitializeComponent();
         }
 
-        private void BtnActivityAdd_Click(object sender, EventArgs e)
+        private void BtnActivityEdit_Click(object sender, EventArgs e)
         {
             if (txtName.Text=="")
             {
@@ -41,28 +42,34 @@ namespace Veresiye.UI
                 return;
             }
 
-            var activity = new Activity();
+            //BURADA BOL BOL HATA VAR
 
-            activity.CompanyId = this.CompanyId;
-            activity.ActivityType = (ActivityType)cmbActivityType.SelectedIndex;
+            var activity = activityService.Get(this.activityId);
+            
             activity.Name = txtName.Text;
             activity.Amount = Convert.ToDecimal(txtAmount.Text);
             activity.TransactionDate = dtpTransactionDate.Value;
-            activityService.Insert(activity);
-            MessageBox.Show("- İşlem Eklendi -");
+            activity.ActivityType = (ActivityType)cmbActivityType.SelectedIndex;
+            activityService.Update(activity);
+            MessageBox.Show("- İşlem Güncellendi -");
             MasterForm.LoadActivities();
             this.Hide();
 
         }
 
-        public void ClearActivities(int companyId)
+        public void ClearActivities(int activityId)
         {
-            this.CompanyId = companyId;
-            this.txtName.Clear();
-            this.txtAmount.Clear();
-            this.dtpTransactionDate.Value=DateTime.Now;
-            this.cmbActivityType.SelectedIndex = -1;
-            
+            this.activityId = activityId;
+            var activity = activityService.Get(activityId);
+            if (activity!=null)
+            {
+                this.txtName.Text=activity.Name;
+                this.txtAmount.Text=activity.Amount.ToString();
+                this.dtpTransactionDate.Value = activity.TransactionDate;
+                this.cmbActivityType.SelectedIndex = ((int)activity.ActivityType)-1;
+            }
+
+
         }
 
         private void FrmActivityAdd_FormClosing(object sender, FormClosingEventArgs e)

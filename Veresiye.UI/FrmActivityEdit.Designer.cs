@@ -1,6 +1,6 @@
 ﻿namespace Veresiye.UI
 {
-    partial class FrmActivityAdd
+    partial class FrmActivityEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.cmbActivityType = new System.Windows.Forms.ComboBox();
             this.dtpTransactionDate = new System.Windows.Forms.DateTimePicker();
-            this.btnActivityAdd = new System.Windows.Forms.Button();
+            this.btnActivityEdit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,15 +73,15 @@
             this.dtpTransactionDate.Size = new System.Drawing.Size(250, 20);
             this.dtpTransactionDate.TabIndex = 3;
             // 
-            // btnActivityAdd
+            // btnActivityEdit
             // 
-            this.btnActivityAdd.Location = new System.Drawing.Point(331, 267);
-            this.btnActivityAdd.Name = "btnActivityAdd";
-            this.btnActivityAdd.Size = new System.Drawing.Size(250, 23);
-            this.btnActivityAdd.TabIndex = 4;
-            this.btnActivityAdd.Text = "Ekle";
-            this.btnActivityAdd.UseVisualStyleBackColor = true;
-            this.btnActivityAdd.Click += new System.EventHandler(this.BtnActivityAdd_Click);
+            this.btnActivityEdit.Location = new System.Drawing.Point(331, 267);
+            this.btnActivityEdit.Name = "btnActivityEdit";
+            this.btnActivityEdit.Size = new System.Drawing.Size(250, 23);
+            this.btnActivityEdit.TabIndex = 4;
+            this.btnActivityEdit.Text = "Değiştir";
+            this.btnActivityEdit.UseVisualStyleBackColor = true;
+            this.btnActivityEdit.Click += new System.EventHandler(this.BtnActivityEdit_Click);
             // 
             // label1
             // 
@@ -119,7 +119,7 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "İşlem Tarihi :";
             // 
-            // FrmActivityAdd
+            // FrmActivityEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,14 +128,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnActivityAdd);
+            this.Controls.Add(this.btnActivityEdit);
             this.Controls.Add(this.dtpTransactionDate);
             this.Controls.Add(this.cmbActivityType);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.txtName);
-            this.Name = "FrmActivityAdd";
+            this.Name = "FrmActivityEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "İşlem Ekle";
+            this.Text = "İşlem Düzenle";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmActivityAdd_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,7 +148,7 @@
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.ComboBox cmbActivityType;
         private System.Windows.Forms.DateTimePicker dtpTransactionDate;
-        private System.Windows.Forms.Button btnActivityAdd;
+        private System.Windows.Forms.Button btnActivityEdit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

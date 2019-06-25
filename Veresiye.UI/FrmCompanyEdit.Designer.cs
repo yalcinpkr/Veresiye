@@ -210,30 +210,35 @@
             this.Column1.DataPropertyName = "Id";
             this.Column1.HeaderText = "Id";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "ActivityType";
             this.Column4.HeaderText = "İşlem Türü";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.DataPropertyName = "Name";
             this.Column2.HeaderText = "Açıklama";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.DataPropertyName = "Amount";
             this.Column5.HeaderText = "Miktar";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "TransactionDate";
             this.Column3.HeaderText = "İşlem Tarihi";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // FrmCompanyEdit
             // 
@@ -246,7 +251,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Şirket Düzenle";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCompanyEdit_FormClosing);
-          
+            this.Load += new System.EventHandler(this.FrmCompanyEdit_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

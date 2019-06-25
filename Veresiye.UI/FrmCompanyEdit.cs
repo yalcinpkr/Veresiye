@@ -18,16 +18,20 @@ namespace Veresiye.UI
         private readonly ICompanyService companyService;
         private readonly IActivityService activityService;
         private readonly FrmActivityAdd frmActivityAdd;
+        private readonly FrmActivityEdit frmActivityEdit;
         public FrmCompanies MasterForm { get; set; }
-        public FrmCompanyEdit(ICompanyService companyService,IActivityService activityService,FrmActivityAdd frmActivityAdd)
+        public FrmCompanyEdit(ICompanyService companyService,IActivityService activityService,FrmActivityAdd frmActivityAdd,FrmActivityEdit frmActivityEdit)
         {
             this.frmActivityAdd = frmActivityAdd;
+            this.frmActivityEdit = frmActivityEdit;
             this.activityService = activityService;
             this.companyService = companyService;
 
             InitializeComponent();
             this.frmActivityAdd.MdiParent = this.MdiParent;
             this.frmActivityAdd.MasterForm = this;
+            this.frmActivityEdit.MdiParent = this.MdiParent;
+            this.frmActivityEdit.MasterForm = this;
         }
 
         //-------------------------------Form Load Bölümü-------------------------------------------------------------------------------------------------------
@@ -94,15 +98,35 @@ namespace Veresiye.UI
         private void BtnActivityAdd_Click(object sender, EventArgs e)
         {
             frmActivityAdd.Show();
-            frmActivityAdd.ClearActivities();
+            frmActivityAdd.ClearActivities(this.Id);
         }
 
         private void BtnActivityEdit_Click(object sender, EventArgs e)
         {
-
+            if (this.dgwActivities.SelectedRows.Count>0)
+            {
+                this.frmActivityEdit.Show();
+                this.frmActivityEdit.ClearActivities(int.Parse(this.dgwActivities.SelectedRows[0].Cells[0].Value.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("- Lütfen Düzenlemek İstediğiniz İşlemi Seçiniz -");
+            }
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (this.dgwActivities.SelectedRows.Count>0)
+            {
+                this.activityService.Delete(int.Parse(this.dgwActivities.SelectedRows[0].Cells[0].Value.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("- Lütfen Silmek İstediğiniz İşlemi Seçiniz -");
+            }
+        }
+
+        private void FrmCompanyEdit_Load(object sender, EventArgs e)
         {
 
         }
