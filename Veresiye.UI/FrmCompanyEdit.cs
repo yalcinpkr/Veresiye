@@ -43,6 +43,7 @@ namespace Veresiye.UI
             txtCity.Text=company.City;
             txtPhone.Text=company.Phone;
             txtRegion.Text=company.Region;
+            LoadActivities();
         }
 
         //-------------------------------Activity Bölümü-------------------------------------------------------------------------------------------------------
@@ -128,7 +129,7 @@ namespace Veresiye.UI
 
         private void FrmCompanyEdit_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
